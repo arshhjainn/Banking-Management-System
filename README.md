@@ -40,14 +40,14 @@ These credentials are for local demonstration only. Change or remove the demo ro
 
 ## Deploy to Vercel
 
-The repository includes a Vercel build configuration for the React frontend and Flask API. Vercel builds the Vite app into `public/` for static delivery and runs Flask as a Python Function. The generated `public/` folder is ignored by Git.
+The repository includes a Vercel Services configuration for the existing React frontend and Flask backend. Vercel routes `/api/*` requests to Flask and serves the frontend for the other routes, including direct visits to nested pages.
 
-1. Import this GitHub repository into Vercel and keep the project root set to the repository root.
+1. Import this GitHub repository into Vercel and keep the project root set to the repository root so it detects both services.
 2. Add these environment variables in Vercel Project Settings → Environment Variables:
    - `FLASK_SECRET_KEY`: a long random secret
    - `SESSION_COOKIE_SECURE`: `true`
    - `DB_HOST`, `DB_PORT`, `DB_NAME`, `DB_USER`, `DB_PASSWORD`: connection details for a hosted MySQL 8 database accessible from Vercel
-3. Deploy. The React app uses the same-origin `/api` routes, so no frontend API URL is needed for the combined deployment.
+3. Deploy. The React app uses same-origin `/api` routes, so no frontend API URL is needed.
 
 The local MySQL server is not reachable from Vercel. Use a managed/hosted MySQL database and load the schema, sample data, views, triggers, procedures, and migrations there before using the deployed app. Do not put database credentials in Git or in frontend variables. Vercel's Python Functions support Flask; see [Vercel's Flask deployment guide](https://vercel.com/docs/frameworks/backend/flask).
 
