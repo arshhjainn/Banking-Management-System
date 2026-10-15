@@ -1,0 +1,13 @@
+[project]
+name = "meridian-banking"
+version = "1.0.0"
+requires-python = ">=3.12"
+dependencies = [
+  "Flask>=3.0,<4",
+  "Flask-Cors>=4,<6",
+  "mysql-connector-python>=8.3,<10",
+  "python-dotenv>=1,<2",
+]
+
+[tool.vercel]
+entrypoint = "backend.app:app"

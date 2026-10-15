@@ -1,0 +1,10 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "buildCommand": "python build.py",
+  "rewrites": [
+    { "source": "/", "destination": "/index.html" },
+    { "source": "/login", "destination": "/index.html" },
+    { "source": "/manager/:path*", "destination": "/index.html" },
+    { "source": "/customer/:path*", "destination": "/index.html" }
+  ]
+}
